@@ -1,0 +1,283 @@
+\Section{The Vector Space \(\mathbb{R}^n\)}
+As a set, \( \mathbb{R}^n \) is simply the collection of all ordered \(n\)-tuples of real numbers. That is,
+\[
+\mathbb{R}^n=\{ (x_1,x_2,\ldots,x_n): x_i \in \mathbb{R}^n \}
+\]
+It therefore follows \( \mathbb{R}^n = \underbrace{\mathbb{R}\times\ldots\times\mathbb{R}}_{n-times} \). The elements of \( \mathbb{R}^n \) are generally referred to as \emph{vectors}. This means that vectors are simply \( n\)-tuples of real numbers, \emph{not} directed line segments, or an equivalence class of directed line segments; notions which are common in introductory treatments of the topic. 
+\\
+
+The set \( \mathbb{R}^n \) is endowed with two operations called \emph{vector addition} and \emph{scalar multiplication}. Given two vectors \( x \) and \( y \) in \( \mathbb{R}^n \), vector addition is a composition map, \( +: \mathbb{R}^n \times \mathbb{R}^n \rightarrow \mathbb{R}^n \), defined by
+\[
+x+y = (x_1,\ldots,x_n)+(y_1,\ldots,y_n) = (x_1+y_1,\ldots,x_n+y_n)
+\]
+
+Scalar multiplication is a map going from \( \mathbb{R} \times \mathbb{R}^n \) to \( \mathbb{R}^n \) defined as
+\[
+\alpha (x_1,\ldots,x_n) = (\alpha x_1, \ldots, \alpha x_n)
+\]
+
+Without further discussion, we see that it follows that \( \langle \mathbb{R}^n,+,\cdot \rangle \) forms a \emph{vector space}, whose definition is assumed knowledge.
+
+\subsection*{Exercises}
+    \question Given \( (a_1,\ldots,a_n) \in \mathbb{R}^n \), show that the set of all \( (x_1,\ldots,x_n) \in \mathbb{R}^n \) such that \( a_1x_1+\ldots+a_nx_n=0 \) is a subspace of \(\mathbb{R}^n \).
+    \begin{proof}
+    It is enough to show that if \( x \) and \( y \) are two vectors in our set, then  \( \alpha x + \beta y \) must also be in the set. To that end, we compute
+    \[
+    \alpha x + \beta y = (\alpha x_1+\beta y_1, \ldots, \alpha x_n+\beta y_n)
+    \]
+    and we see that
+    \[
+    a_1(\alpha x_1 + \beta y_1)+\ldots+a_n(\alpha x_n + \beta y_n) = \alpha \left(\sum a_ix_i\right) + \beta \left(\sum a_iy_i\right) = 0
+    \]
+    as desired.
+    \end{proof}
+    
+    \question Prove that the intersection of two subspaces of \( \mathbb{R}^n \) is also a subspace.
+    \begin{proof}
+    Let \( V \) and \( W \) be subspaces of \( \mathbb{R}^n \) and let \( x,y \in V \cap W \). Since \( V \) and \( W \) are subspaces, we know
+    \[
+    \alpha x + \beta y \in V \hspace{3mm} \text{ and } \hspace{3mm} \alpha x + \beta y \in W
+    \]
+    and so \( \alpha x + \beta y \in V \cap W \). Therefore \( V \cap W \) is a subspace.
+    \end{proof}
+    
+    \question Given subspaces \( V \) and \( W \) of \( \mathbb{R}^n \), denote by \( V + W \) the set of all vectors \( v+w \) with \( v \in V \) and \( w \in W \). Show that \( V+W \) is a subspace of \( \mathbb{R}^n \).
+    \begin{proof}
+    Let \( v_1+w_1, v_2+w_2 \in V+W \). Then, since \( V \) and \( W \) are subspaces, we get
+    \[
+    \alpha (v_1+w_1) + \beta (v_2+w_2) = (\alpha v_1 + \beta v_2) + (\alpha w_1 + \beta w_2) \in V + W
+    \]
+    implying \( V+W \) is a subspace.
+    \end{proof}
+    
+    \question If \( V \) is the set of all \( (x,y,z) \in \mathbb{R}^3 \) such that \( x+2y = 0 \) and \( x+y = 3z \), show that \( V \) is a subspace of \( \mathbb{R}^3 \).
+    \begin{proof}
+    Let \( (x_1,y_1,z_1) \) and \( (x_2,y_2,z_2) \) be two elements of our set. Then
+    \[
+    \alpha x_1 + \beta x_2 + 2 \alpha y_1 + 2 \beta y_2 = \alpha (x_1 + 2y_1) + \beta (x_2 + 2y_2) = 0
+    \]
+    and
+    \[
+    \alpha x_1 + \beta x_2 + \alpha y_1 + \beta y_2 = \alpha (x_1+y_1) + \beta (x_2+ y_2) = 3 (\alpha z_1 + \beta z_2)
+    \]
+    which implies that \( \alpha (x_1,y_1,z_1) + \beta (x_2,y_2,z_2) \) is also in our set. Therefore, it is a subspace.
+    \end{proof}
+    
+    \question Let \( \mathscr{D}_0 \) denote the set of all differentiable real-valued functions on \( [0,1] \) such that \( f(0) = f(1) = 0 \). Show that \( \mathscr{D}_0 \) is a vector space with properly defined addition and multiplication. Would this be true if the condition \( f(0) = f(1) = 0 \) were replaced by \( f(0) = 0 \) and \( f(1)=1 \)?
+    \begin{proof}
+    Verifying that \( \mathscr{D}_0 \) is a vector space is a trivial matter. Assuming that \( f(1) = 1 \) would imply that, for \( f,g \in \mathscr{D}_0 \), \( f(1)+g(1) = 1+1 = 2 \) so that \( \mathscr{D}_0 \) is not closed wrt addition, implying that it isn't a vector space.
+    \end{proof}
+    
+    \question Given a set \( S \), denote by \( \mathscr{F}(S,\mathbb{R}) \) the set of all real-valued functions on \( S \), that is, all maps \( S \rightarrow \mathbb{R} \). Show that \( \mathscr{F}(S, \mathbb{R}) \) is a vector space with the operations defined properly. Note that \( \mathscr{F}(\{ 1,\ldots, n \}, \mathbb{R}) \) can be interpreted as \( \mathbb{R}^n \) since the function \( \phi \in \mathscr{F}(\{ 1,\ldots, n \}, \mathbb{R}) \) may be regarded as the \( n \)-tuple \( (\phi(1),\phi(2),\ldots,\phi(n)) \).
+    \begin{proof}
+    Trivial.
+    \end{proof}
+    
+\Section{Subspaces of \( \mathbb{R}^n \)}
+In this section, we will develop the notion of the \emph{dimension} of a vector space, and apply our results in particular to \( \mathbb{R}^n \). First we define what we mean by linear independence and linear dependence. We say that a collection of vectors \( \{ v_1,\ldots, v_n \} \) are \emph{linearly dependent} if there exists a linear combination satisfying
+\[
+\alpha_1v_1+\ldots+\alpha_nv_n = 0 \hspace{5mm} \text{not all } \alpha_i = 0
+\]
+\begin{thm}{Proposition}
+If \( \{ v_1,\ldots,v_n\} \) is linearly dependent then one of the vectors is a linear combination of the others.
+\end{thm}
+\begin{proof}
+Suppose \( \{ v_1,\ldots,v_n\} \) is linearly dependent. Then there exists 
+\[
+\alpha_1v_1+\ldots+\alpha_iv_i+\ldots+\alpha_nv_n = 0
+\]
+where \( \alpha_i \neq 0 \). But then
+\[
+-\frac{\alpha_1}{\alpha_i}v_1 - \ldots - \frac{\alpha_{i-1}}{\alpha_i}v_{i-1} - \frac{\alpha_{i+1}}{\alpha_i}v_{i+1} - \ldots - \frac{\alpha_n}{\alpha_i}v_n = v_i
+\]
+\end{proof}
+We say that a collection of vectors is \emph{linearly independent} if they are not linearly dependent. It is obvious that this then means that a collection of vectors is linearly independent when 
+\[
+\alpha_1v_1+\ldots+\alpha_nv_n = 0
+\]
+implies \( \alpha_i = 0 \) for every \( 1 \leq i \leq n \). From the above proposition, this is equivalent to saying that none of the vectors can be written as a linear combination of the others.
+\\
+
+If \( \{ v_1,\ldots,v_k \} \subset \mathbb{R}^n \), then we define \( span\: \{ v_1,\ldots,v_k \} = \{ \alpha_1v_1+\ldots+\alpha_kv_k : \alpha_i \in \mathbb{R} \} \). That is, the span of a set is simply the set of all linear combinations of its elements. We leave it as an exercise to show that the span of a set is a subspace of \( \mathbb{R}^n \). 
+
+\begin{thm}{Proposition}
+    If \( \{ v_1,\ldots,v_n\} \) is linearly independent and \( v \in span \: \{v_1,\ldots,v_n\} \) then there is a unique linear combination such that
+    \[
+    \alpha_1v_1+\ldots+\alpha_nv_n = v
+    \]
+\end{thm}
+
+\begin{proof}
+If
+\[
+\alpha_1v_1+\ldots+\alpha_nv_n = v = \beta_1v_1+\ldots+\beta_nv_n
+\]
+then
+\[
+(\alpha_1-\beta_1)v_1+\ldots+(\alpha_n-\beta_n)v_n = 0
+\]
+which, by independence of \( \{v_1,\ldots,v_n\} \), implies \( \alpha_i=\beta_i \).
+\end{proof}
+
+If \( \{v_1,\ldots,v_k\} \subset \mathbb{R}^n \) is linearly independent and \( span\:\{ v_1,\ldots,v_k \} = \mathbb{R}^n \),  we say it is a \emph{basis} of \( \mathbb{R}^n \). That is, \( \{v_1,\ldots,v_k\} \) is a basis of \( \mathbb{R}^n \) if it is a linearly independent spanning set of \( \mathbb{R}^n \).
+
+\begin{thm}{Proposition}
+    The collection \( \{ e_1,\ldots, e_n \} \subset \mathbb{R}^n \), where \linebreak \( e_i = (0,\ldots,1,\ldots,0) \) with 1 in the \(i\)th component, is a basis of \( \mathbb{R}^n \).
+\end{thm}
+\begin{proof}
+    If \( x \in \mathbb{R}^n \), then
+    \[
+    x = (x_1,\ldots,x_n) = x_1e_1+\ldots+x_ne_n
+    \]
+    so that \( span\: \{e_1,\ldots,e_n\} = \mathbb{R}^n \). Now, if
+    \[
+    \alpha_1e_1+\ldots+\alpha_ne_n = (0,\ldots,0)
+    \]
+    then
+    \[
+    (\alpha_1,\ldots,\alpha_n) = (0,\ldots,0)
+    \]
+    implying \( \alpha_i = 0 \) for all \( 1 \leq i \leq n \), so that \( \{e_1,\ldots,e_n\} \) is linearly independent. Therefore it is a basis.
+\end{proof}
+
+\begin{thm}{Proposition}
+    If \( \{v_1,\ldots,v_k \} \) is a basis of \( \mathbb{R}^n \), then \( k = n \).
+\end{thm}
+\begin{proof}
+    Suppose \( \{v_1,\ldots,v_k\} \) is a basis of \( \mathbb{R}^n \). Then \( \{ v_1,\ldots,v_k,e_1 \} \) is dependent. Thus
+    \[
+    \alpha_1v_1+\ldots+\alpha_kv_k=e_1
+    \]
+    So there is a first non-zero \( \alpha_i \) so that
+    \[
+    \alpha_iv_i+\alpha_{i+1}v_{i+1}+\ldots+\alpha_kv_k= e_1
+    \]
+    which implies
+    \[
+    \frac{1}{\alpha_i}e_i-\frac{\alpha_{i+1}}{\alpha_i}v_{i+1}-\ldots-\frac{\alpha_k}{\alpha_i}v_k = v_i
+    \]
+    which implies \( \{ e_1,v_1,\ldots,v_{i-1},v_{i+1},\ldots,v_k \} \) is a basis of \( \mathbb{R}^n \). So, again \linebreak \( \{ e_1,v_1,\ldots,v_{i-1},v_{i+1},\ldots,v_k,e_2 \} \) is dependent. Thus there is
+    \[
+    \beta_1e_1+\alpha_1v_1+\ldots+\alpha_{i-1}v_{i-1}+\alpha_{i+1}v_{i+1}+\ldots+\alpha_ke_k = e_2
+    \]
+    Now if every \( \alpha_j = 0 \) then we would have \( e_1=e_2 \) which is clearly absurd. Thus there is some first non-zero \( \alpha_j \) so that
+    \[
+    -\frac{\beta_1}{\alpha_j}e_1+\frac{1}{\alpha_j}e_2-\frac{\alpha_1}{\alpha_j}v_1-\ldots-\frac{\alpha_{j-1}}{\alpha_j}v_{j-1}-\frac{\alpha_{j+1}}{\alpha_j}v_{j+1}-\ldots-\frac{\alpha_k}{\alpha_j}v_k = v_j
+    \]
+    which implies \( \{ e_1,e_2,v_1,\ldots,v_{i-1},v_{i+1},\ldots,v_{j-1},v_{j+1},\ldots,v_k \} \) is a basis of \( \mathbb{R}^n \). Continuing in this fashion, we get that either \( \{ e_1,\ldots,e_n,v_{i_1},\ldots,v_{i_{k-n}} \} \) or \( \{ e_1,\ldots,e_k \} \) is a basis of \( \mathbb{R}^n \). Note that the former, by our previous proposition, is dependent and therefore is not a basis. For the latter, if \( k < n \) then, again by our previous proposition, \( e_{k+1} \not\in span\:\{ e_1,\ldots,e_k \} \) which would imply it is not a basis. Therefore \( k = n \).
+\end{proof}
+
+\begin{thm}{Corollary}
+    Every basis of \( \mathbb{R}^n \) has the same number of vectors in it.
+\end{thm}
+\begin{thm}{Corollary}
+    Every collection of \( n \) linearly independent vectors in \( \mathbb{R}^n \) is a basis of \( \mathbb{R}^n \).
+\end{thm}
+
+Note that with some simple modifications, the above proposition can be used to show that if \( V \) is a vector space with a finite basis, then every basis of \( V \) is finite, and has the same cardinal number. In general, we say that the dimension of a vector space \( V \), denoted \( dim\:V \), is the cardinality of a basis of \( V \). In particular, \( dim\: \mathbb{R}^n = n \). If there is some vector space \( V \) such that for all \( n \in \mathbb{N} \) there is a \( \{ v_1,\ldots,v_n \} \subset V \) which is linearly independent, then \( V \) is \emph{infinite-dimensional}. Notice that the space of all continuous real-valued functions is infinite-dimensional since \( \{ 1,x,x^2,\ldots,x^n \} \) is linearly independent for all \( n \).
+
+\subsection*{Exercises}
+    \question Why is it true that the vectors \( v_1,\ldots,v_k \) are linearly dependent if any one of them is zero?
+    \begin{proof}
+        If \( v_i = 0 \), then
+        \[
+        0v_1+\ldots+v_i+\ldots+0v_k = 0
+        \]
+        which implies that \( \{ v_1,\ldots,v_k\} \) is dependent.
+    \end{proof}
+    
+    \question Which of the following sets of vectors are bases for the appropriate space \( \mathbb{R}^n \)?
+    \begin{enumerate}
+        \item \( (1,0) \) and \( (1,1) \).
+        
+        \item \( (1,0,0), (1,1,0) \), and \( (0,0,1) \).
+        
+        \item \( (1,1,1), (1,1,0)\), and \( (1,0,0) \).
+        
+        \item \( (1,1,1,0), (1,0,0,0), (0,1,0,0) \) and \( (0,0,1,0) \).
+        
+        \item \( (1,1,1,1), (1,1,1,0), (1,1,0,0) \), and \( (1,0,0,0) \).
+    \end{enumerate}
+    \begin{proof}
+        \begin{enumerate}
+            \item This is a basis of \( \mathbb{R}^2 \) since for all \( \alpha \), it is clear
+            \[
+            \alpha(1,0) \neq (1,1)
+            \]
+            and given \( (x,y) \)
+            \[
+            (x-y)(1,0) +y(1,1) = (x-y+y,y) = (x,y)
+            \]
+            
+            \item This is a basis of \( \mathbb{R}^3 \) since
+            \[
+            \alpha(1,0,0)+\beta(1,1,0)+\gamma(0,0,1) = (0,0,0)
+            \]
+            implies
+            \[
+            (\alpha+\beta,\beta,\gamma) = (0,0,0)
+            \]
+            and solving the simultaneous equations gives \( \alpha=\beta=\gamma =0 \). Furthermore, given \( (x,y,z) \)
+            \[
+            (x-y)(1,0,0)+y(1,1,0)+z(0,0,1) = (x,y,z)
+            \]
+            
+            \item This is also a basis of \( \mathbb{R}^3 \) since
+            \[
+            \alpha(1,1,1)+\beta(1,1,0)+\gamma(1,0,0) = (0,0,0)
+            \]
+            implies
+            \[
+            (\alpha+\beta+\gamma, \alpha+\beta, \alpha) = (0,0,0)
+            \]
+            which implies \( \alpha=\beta=\gamma=0 \). Furthermore, given \( (x,y,z) \)
+            \[
+            z(1,1,1)+(y-z)(1,1,0)+(x-y)(1,0,0) = (x,y,z)
+            \]
+            
+            \item This is not a basis of \( \mathbb{R}^4 \) since
+            \[
+            (1,0,0,0)+(0,1,0,0)+(0,0,1,0)=(1,1,1,0)
+            \]
+            
+            \item This is a basis of \( \mathbb{R}^4 \). You can show this by applying the same techniques used in (3).
+        \end{enumerate}
+    \end{proof}
+    
+    \question Find the dimension of the subspace \( V \) of \( \mathbb{R}^4 \) that is generated by the vectors \( (0,1,0,1) \), \( (1,0,1,0) \), and \( (1,1,1,1) \).
+    
+    \begin{proof}
+        We notice that
+        \[
+        (1,0,1,0)+(0,1,0,1)=(1,1,1,1)
+        \]
+        On the other hand if 
+        \[
+        \alpha(1,0,1,0)+\beta(0,1,0,1) = (0,0,0,0)
+        \]
+        then
+        \[
+        (\alpha,\beta,\alpha,\beta) = (0,0,0,0)
+        \]
+        which implies that \( \alpha=\beta=0 \). Thus \( \{ (1,0,1,0), (0,1,0,1) \} \) is linearly independent. Thus the dimension is 2.
+    \end{proof}
+    
+    \question Show that the vectors \( (1,0,0,1), (0,1,0,1), (0,0,1,1) \) form a basis for the subspace \( V \) of \( \mathbb{R}^4 \) which is defined by the equation \( x_1+x_2+x_3-x_4=0 \).
+    
+    \begin{proof}
+        Suppose \( u \in span\{ (1,0,0,1),(0,1,0,1),(0,0,1,1) \} \). Then
+        \begin{align*}
+            u &= \alpha_1(1,0,0,1)+\alpha_2(0,1,0,1)l+\alpha_3(0,0,1,1) \\
+            &= (\alpha_1,\alpha_2,\alpha_3,\alpha_1+\alpha_2+\alpha_3)
+        \end{align*}
+        which implies that if \( u = (0,0,0,0) \) then \( \alpha_1=\alpha_2=\alpha_3 = 0 \). Furthermore if \( \alpha_i = x_i \), then we get
+        \[
+        span\{ (1,0,0,1),(0,1,0,1),(0,0,1,1) \} = \{ (x_1,x_2,x_3,x_4)\in \mathbb{R}^4: x_1+x_2+x_3-x_4=0 \}
+        \]
+    \end{proof}
+    
+    \question Show that any set \( v_1,\ldots, v_k \), of linearly independent vectors in a vector space \( V \) can be extended to a basis for \( V \). That is, if \( k < n = dim\:V \), then there exist vectors \( v_{k+1},\ldots,v_n \) in \( V \) such that \( v_1,\ldots,v_n \) is a basis for \( V \).
+    
+    \begin{proof}
+        As mentioned in the section, a few minor modifications to Proposition 2.4 will show for a finite-dimensional vector space \( V \), every basis of \( V \) has \( dim\:V \) number of vectors in it. Thus if \( \{ v_1,\ldots,v_k \} \) is linearly independent and \( k < n \), then it cannot be a basis, and so it cannot span \( V \). Thus there is a vector \( v_{k+1} \) such that \( \{ v_1,\ldots,v_k,v_{k+1} \} \) is linearly independent. Indeed we can find \( n-k \) vectors, \( v_{k+1}, \ldots, v_{n} \), such that \( \{ v_1,\ldots,v_k,v_{k+1},\ldots,v_n \} \) is linearly independent in \( V \) which would imply that it is a basis of \( V \).
+    \end{proof}

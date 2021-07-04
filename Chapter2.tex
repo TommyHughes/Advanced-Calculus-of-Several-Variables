@@ -1,0 +1,381 @@
+As in the single-variable case, the basic conceit of multivariable differential calculus will be to use linear functions to approximate nonlinear functions. Recall that in the calculus of single-variable functions, we can use the derivative at a point--when it exists--to form the line tangent to the graph of the function at that point to approximate the function. That is, the line
+\[
+y = f'(a)(x-a)+f(a)
+\]
+can be used to obtain approximate values of \( f(x) \) when \( x \) is sufficiently close to \( a \).
+\\
+
+We might also say that \( f'(a) \) is a linear approximation to the change \linebreak \( f(x)-f(a) \). To be more precise, let \( \Delta f_a(h) = f(a+h)-f(a) \) and \( df_a(h) = f'(a)h \). The \underline{linear} mapping \( df_a: \mathbb{R} \rightarrow \mathbb{R} \), defined by \(df_a(h) = f'(a)h\), is called the \emph{differential} of \( f \) at \( a \); it is simply that linear mapping \( \mathbb{R} \rightarrow \mathbb{R} \) whose matrix is the \emph{derivative} \( f'(a) \) of \( f \) at \( a \) (the matrix of a linear mapping \( \mathbb{R} \rightarrow \mathbb{R} \) being just a real number). With this terminology we find that when \( h \) is small, the linear change \( df_a(h) \) is a good approximation to the actual change \( \Delta f_a(h) \) in the sense that
+\[
+\lim_{h \rightarrow 0} \frac{\Delta f_a(h) - df_a(h)}{h} = \lim_{h \rightarrow 0} \frac{f(a+h)-f(a)-f'(a)h}{h} = 0
+\]
+Here \( df_a(h) \) will be called the differential of \( f \) at \( a \); its \( m \times n \) matrix will be called the derivative of \( f \) at \( a \), thus preserving the above relationship between the differential (a linear mapping) and the derivative (its matrix). 
+
+\Section{Curves in \( \mathbb{R}^n \)}
+We begin with the special case of a mapping \( f: \mathbb{R} \rightarrow \mathbb{R}^m \). We define
+\[
+f'(a) = \lim_{h \rightarrow 0} \frac{f(a+h)-f(a)}{h}
+\]
+so that, should this limit exist, we say that \( f \) is differentiable at \( a \in \mathbb{R} \). The \emph{derivative} of \( f \), \( f'(a) \), is a vector tangent to image curve of \( f \) at the point \( f(a) \). If we imagine that the curve is simply the motion traced out by the movement of a particle then the length \( \left| f'(a) \right| \) is the speed at time \( t=a \) of the particle. For this reason, we can refer to \( f'(a) \) as the \emph{velocity vector} at time \( t=a \). 
+\\
+
+If the derivative mapping \( f':\mathbb{R} \rightarrow \mathbb{R} \) is itself differentiable at \( a \), its derivative at \( a \) is the \emph{second derivative} \( f''(a) \) of \( f \) at \( a \). Again, if we take \( f \) in physical terms, then \( f''(a) \) is a vector which represents the \emph{acceleration} of a particle at time \( a \). We can say that \( f''(a) \) is the \emph{acceleration vector}.
+\\
+
+Since limits can be taken coordinatewise, it follows that
+\[
+f'=(f_1',\ldots,f_m')
+\]
+That is, the differentiable function \( f: \mathbb{R} \rightarrow \mathbb{R}^m \) may be differentiated coordinatewise. This leads to the following theorem.
+
+\begin{thm}{Theorem}
+Let \( f,g: \mathbb{R} \rightarrow \mathbb{R}^m \), and \( \phi: \mathbb{R} \rightarrow \mathbb{R} \) all be differentiable. Then
+\begin{align*}
+    (f+g)' &= f'+g' \\
+    (\phi f)' &= \phi' f + \phi f' \\
+    (f \cdot g)' &= f'\cdot g + f \cdot g' \\
+    (f \circ \phi)'(t) &= \phi'(t)f'(\phi(t))
+\end{align*}
+\end{thm}
+\begin{proof}
+\begin{enumerate}
+    \item Notice the \(i\)th coordinate of \( f+g \) is \( f_i+g_i \) which implies that the \(i\)th coordinate of \( (f+g)' \) is \( (f_i+g_i)' = f_i'+g_i' \) 
+    \item Notice the \(i\)th coordinate of \( \phi f \) is \( \phi f_i \) which implies that the \(i\)th coordinate of \( (\phi f)' \) is \( (\phi f_i)' =  \phi' f_i + \phi f_i' \).
+    
+    \item Notice the \(i\)th coordinate of \( f\cdot g \) is \( f_i\cdot g_i \) which implies that the \(i\)th coordinate of \( (f \cdot g)' \) is \( (f_i \cdot g_i)' = f_i'\cdot g + f_i \cdot g_i' \).
+    
+    \item Notice the \(i\)th coordinate of \( f \circ \phi \) is \( f_i \circ \phi \) which implies that the \(i\)th coordinate of \( (f \circ \phi)' \) is \( (f_i \circ\phi)' = \phi'f_i'(\phi) \)
+\end{enumerate}
+\end{proof}
+
+The \emph{tangent line} at \( f(a) \) to the image curve of the differentiable mapping \( f: \mathbb{R} \rightarrow \mathbb{R}^m \) is, by definition, that straight line which passes through \( f(a) \) and is parallel to the tangent vector \( f'(a) \). We now inquire as to how well this tangent line approximates the curve close to \( f(a) \). That is, how closely does the mapping \( h \rightarrow f(a)+hf'(a) \) of \( \mathbb{R} \) into \( \mathbb{R}^m \) (whose image is the tangent line) approximate the mapping \( h \rightarrow f(a+h) \)? Let us write
+\[
+\Delta f_a(h) = f(a+h)-f(a)
+\]
+for the actual change in \( f \) from \( a \) to \( a+h \), and 
+\[
+df_a(h) = hf'(a)
+\]
+for the linear (as a function of \( h \)) change along the tangent line. Thus we are asking how small the difference vector \( \Delta f_a(h)-df_a(h) \) is when \( h \) is small. The answer is that it goes to zero faster than \( h \) does. That is,
+\begin{align*}
+    \lim_{h \rightarrow 0} \frac{\Delta f_a(h) - df_a(h)}{h} &= \lim_{h \rightarrow 0} \frac{f(a+h)-f(a)-hf'(a)}{h} \\
+    &= \left(\lim_{h \rightarrow 0} \frac{f(a+h)_f(a)}{h} \right)-f'(a) \\
+    &= 0
+\end{align*}
+This already provides the ``only if" part of the following theorem
+\begin{thm}{Theorem}
+The mapping \( f: \mathbb{R} \rightarrow \mathbb{R}^m \) is differentiable if and only if there is a linear mapping \( L: \mathbb{R} \rightarrow \mathbb{R}^m \) such that
+\[
+\lim_{h \rightarrow 0} \frac{f(a+h)-f(a)-L(h)}{h} = 0
+\]
+in which case \( L \) is defined by \( L(h) = df_a(h) = f'(a)h \).
+\end{thm}
+\begin{proof}
+Suppose that there is a linear mapping satisfying the above. Then there is a vector \( b \in \mathbb{R}^m \) such that \( L \) is defined by \( L(h) = hb \); we must show that \( f'(a) \) exists and that it is equal to \( b \). But
+\[
+f'(a) = \lim_{h \rightarrow 0} \frac{f(a+h)-f(a)}{h} = \lim_{h \rightarrow 0} \left( \frac{f(a+h)-f(a)-hb}{h} \right)+b = b
+\]
+\end{proof}
+If \( f: \mathbb{R} \rightarrow \mathbb{R}^m \) is differentiable at \( a \), then the linear mapping \( df_a: \mathbb{R} \rightarrow \mathbb{R}^m \), defined by \( df_a(h) = hf'(a) \), is called the \emph{differential} of \( f \) at \( a \). Notice that the derivative vector \( f'(a) \) is, as a column vector, the matrix of the linear mapping \( df_a \), since 
+\[
+df_a(h) = hf'(a) = \left( \begin{array}{c} f_1'(a) \\ \vdots \\ f_m'(a) \end{array} \right)h
+\]
+
+The following discussion provides some motivation for the notation \( df_a \) for the differential of \( f \) at \( a \). Let us consider the identity function \( \mathbb{R} \rightarrow \mathbb{R} \), and write \( x \) for its name as well as its value at \( x \). Since its derivative is 1 everywhere, its differential at \( a \) is defined by
+\[
+dx_a(h) = 1\cdot h = h
+\]
+If \( f \) is real-valued, and we substitute \( h = dx_a(h) \) into the definition of \( df_a: \mathbb{R} \rightarrow \mathbb{R} \), we obtain
+\[
+df_a(h) = f'(a)h = f'(a)dx_a(h)
+\]
+So the two linear mappings \( df_a \) and \( f'(a)dx_a \) are equal,
+\[
+df_a = f'(a)dx_a
+\]
+If we now use the Leibniz notation \( f'(a) = \frac{df}{dx} \) and drop the subscript \( a \), we obtain the famous formula
+\[
+df = \frac{df}{dx}dx
+\]
+which now not only makes sense, but is true! It is an actual equality of linear mappings of the real line into itself.
+\\
+
+Now let \(f \) and \( g \) be two differentiable functions from \( \mathbb{R} \rightarrow \mathbb{R} \), and write \( h = g \circ f \) for the composition. Then the chain rule gives
+\begin{align*}
+    dh_a(t) &= h'(a)t \\
+    &= g'(f(a))[f'(a)t] \\
+    &= g'(f(a))[df_a(t)] \\
+    &= dg_{f(a)}(df_a(t))
+\end{align*}
+so we see that the single-variable chain rule takes the form
+\[
+dh_a = dg_{f(a)} \circ df_a
+\]
+
+\subsection*{Exercises}
+\question Let \( f:\mathbb{R} \rightarrow \mathbb{R}^m \) be a differentiable mapping with \( f'(t) \neq 0 \) for all \( t \in \mathbb{R} \). Let \( p \) be a fixed point not on the image curve of \( f \). If \( q = f(t_0) \) is the point of the curve closest to \( p \), that is, if \( \left| p-q \right| \leq \left| p - f(t) \right| \) for all \( t \in \mathbb{R} \), show that the vector \( p-q \) is orthogonal to the curve at \( q \).
+
+\begin{proof}
+Let all the hypotheses hold and let us take \( \phi: \mathbb{R} \rightarrow \mathbb{R} \) to be defined by
+\[
+\phi(t) = \left| p-f(t) \right|^2 = \sum_{i=1}^m \left( p_i-f_i(t) \right)^2
+\]
+By the hypotheses on \( p \) and \( f(t) \), we know that \( \phi(t) \) is differentiable for all \( t \) and has a minimum at \( t_0 \). Thus we have
+\[
+\phi'(t_0) = (-2)\sum_{i=1}^m \left( f_i'(t_0)(p_i-f_i(t_0)) \right) = 0
+\]
+which implies
+\[
+0 = \sum_{i=1}^m \left( f_i'(t_0)(p_i-f_i(t_0)) \right) = \langle f'(t_o), p-f(t_0) \rangle = \langle f'(t_o), p-q \rangle
+\]
+so that \( p-q \) is orthogonal to the curve at \( q \).
+\end{proof}
+
+\question \begin{enumerate}[label=\alph*]
+    \item Let \( f,g: \mathbb{R} \rightarrow \mathbb{R}^n \) be two differentiable curves, with \( f'(t) \neq 0 \) and \( g'(t) \neq 0 \) for all \( t \in \mathbb{R} \). Suppose the two points \( p = f(s_0) \) and \( q=g(t_0) \) are closer than any other pair of points on the two curves. Then prove that the vector \( p-q \) is orthogonal to both velocity vectors \( f'(s_0) \) and \( g'(t_0) \). 
+    
+    \item Apply the result of (a) to find the closest pair of points on the ``skew" straight lines in \( \mathbb{R}^3 \) defined by \( f(s) = (s,2s,-s) \) and \( g(t) = (t+1,t-2,2t+3) \).
+\end{enumerate}
+
+\begin{proof}
+\begin{enumerate}[label=\alph*]
+    \item If we consider \( q \) as a point, then \( p \) is the point on \( f \) closest to \( q \) and thus by the previous exercise we will get that \( p-q \) is orthogonal to \( f'(s_0) \). A similar argument demonstrates the same for \( g'(t_0) \).
+    
+    \item Notice that \( dg_s = (1,2,-1) \) and \( df_t = (1,1,2) \). If there is a unique 2-tuple \( (s_0,t_0) \), such that 
+    \[
+    \langle dg_{s_{0}},f(t_0)-g(s_0) \rangle = \langle df_{t_0}, f(t_0)-g(s_0) \rangle = 0
+    \]
+    then, by (a), we will have our solution. To that end, we solve the simluateneous equations
+    \[
+    \begin{array}{rl}
+    \langle (1,2,-1), (t+1-s,t-2-2s,2t+3+s) \rangle &= 0 \\
+    \langle (1,1,2), (t+1-s,t-2-2s,2t+3+s) \rangle &= 0
+    \end{array}
+    \]
+    which is a linear system in \( t \) and \( s \). We get the unique solution
+    \[
+    (s_0,t_0) = \left( \frac{31}{35}, \frac{396}{35} \right)
+    \]
+\end{enumerate}
+\end{proof}
+
+\question Let \( F: \mathbb{R}^n \rightarrow \mathbb{R}^n \) be a \emph{conservative} force field on \( \mathbb{R}^n \), meaning that there exists a continuously differentiable \emph{potential function} \( V: \mathbb{R}^n \rightarrow \mathbb{R} \) such that \( F(x) = -\nabla V(x) \) for all \( x \in \mathbb{R}^n \) [recall that \(\nabla V = \left( \partial V / \partial x_1,\ldots, \partial V/ \partial x_n \right) \)]. Call the curve \( \phi: \mathbb{R} \rightarrow \mathbb{R}^n \) a ``quasi-Newtonian particle" if and only if there exist constants \( m_1, m_2,\ldots,m_n \), called its ``mass components," such that
+\[
+F_i(\phi(t)) = m_i\phi_i''(t) \hspace{3mm} (F=ma)
+\]
+for each \( i=1,\ldots,n \). Thus, with respect to the \( x_i \)-direction, it behaves as though it has mass \( m_i \). Define its \emph{kinetic energy} \( K(t) \) and \emph{potential energy} \( P(t) \) at time \( t \) by
+\[
+K(t) = \frac{1}{4}\sum_{i=1}^n m_i[\phi_i'(t)]^2, \hspace{3mm} P(t) = V(\phi(t))
+\]
+Now prove that the law of the \emph{conservation of energy} holds for quasi-Newtonian particles, that is, \( K+P =\) constant.
+
+\begin{proof}
+Notice if \( V: \mathbb{R}^n \rightarrow \mathbb{R} \) is \( \mathscr{C}^1 \), then
+\[
+\nabla V = (D_1V_1,\ldots,D_nV) = V'
+\]
+and so
+\[
+F(x) = -V'(x)
+\]
+Now,
+\begin{align*}
+K(t) &= \frac{1}{2}\sum m_i[\phi_i(t)]^2 \\
+K'(t) &= \sum m_i(\phi_i'(t))(\phi_i''(t))
+\end{align*}
+and
+\begin{align*}
+P(t) &= V(\phi(t)) \\
+P'(t) &= V'(\phi(t))\phi'(t) \\
+&= -F(\phi(t))\phi'(t)
+\end{align*}
+and since \( F_i(\phi(t))=m_i\phi_i''(t) \) it follows that
+\begin{align*}
+P'(t) &= \left[ \begin{array}{ccc} -m_1\phi_1''(t) & \ldots & -m_n\phi_n''(t) \end{array}  \right] \left[ \begin{array}{c} \phi_1'(t) \\ \vdots \\ \phi_n'(t) \end{array} \right] \\
+&= -\sum m_i(\phi_i'(t))(\phi_i''(t))
+\end{align*}
+which implies that \( (K(t)+P(t))' = K'(t) + P'(t) = 0 \). Since \( K+P: \mathbb{R} \rightarrow \mathbb{R} \) we know that this therefore implies that \( K+P = c \) where \( c \in \mathbb{R} \)
+\end{proof}
+
+\question (n-body problem)
+
+\question If \( f: \mathbb{R} \rightarrow \mathbb{R}^m \) is linear, prove that \( f'(a) \) exists for all \( a \in \mathbb{R} \), with \(df_a = f \).
+
+\begin{proof}
+Notice
+\[
+\lim_{h \rightarrow 0} \frac{f(a+h)-f(a)-f(h)}{h} = \lim_{h \rightarrow 0} \frac{0}{h} = 0
+\]
+so that by Theorem 1.2 \( f \) is differentiable and \( df_a=f \).
+\end{proof}
+
+\question If \( L_1 \) and \( L_2 \) are two linear mappings from \( \mathbb{R} \) to \( \mathbb{R}^n \) satisfying Theorem 1.2, prove that \( L_1 = L_2 \). 
+\begin{proof}
+Since both \( L_1(h) \) and \( L_2(h) \) satisfy the equation in Theorem 1.2, it follows
+\begin{align*}
+0 &= \lim_{h \rightarrow 0} \frac{f(a+h)-f(a)-L_1(h)}{h}-\frac{f(a+h)-f(a)-L_2(h)}{h} \\
+&= \lim_{h \rightarrow 0} \frac{L_2(h) - L_1(h)}{h} \\
+&= \lim_{h \rightarrow 0} L_2(1)-L_1(1) \\
+&= L_2(1) - L_1(1)
+\end{align*}
+so that \( L_2(1) = L_1(1) \) and by linearity it follows \( L_2(h) = L_1(h) \).
+\end{proof}
+
+\question Let \( f,g: \mathbb{R} \rightarrow \mathbb{R} \) both be differentiable at \( a \).
+\begin{enumerate}
+    \item Show that \( d(fg)_a= g(a)df_a+f(a)dg_a \).
+    \item Show that 
+    \[
+    d\left( \frac{f}{g} \right)_a = \frac{g(a)df_a-f(a)dg_a}{(g(a))^2} \hspace{8mm} g(a) \neq 0
+    \]
+\end{enumerate}
+
+\begin{proof}
+\begin{enumerate}
+    \item Notice that 
+    \begin{align*}
+    f(a+h)g(a+h)-f(a)g(a) &=  \Delta f_a \Delta g_a + g(a)\Delta f_a + f(a)\Delta g_a
+    \end{align*}
+    which implies
+    \begin{align*}
+    d(fg)_a &= \lim_{h \rightarrow 0} \frac{f(a+h)g(a+h)-f(a)g(a)}{h} \\
+    &= \lim_{h \rightarrow 0}\frac{\Delta f_a(h) \Delta g_a(h)}{h} + \lim_{h \rightarrow 0} \frac{g(a)\Delta f_a(h)}{h} + \lim_{h \rightarrow 0} \frac{f(a) \Delta g_a(h)}{h} \\
+    &= 0 + g(a)df_a + f(a)dg_a
+    \end{align*}
+    
+    \item Notice that if \( h(x) = \frac{1}{g(x)} \) then
+    \begin{align*}
+        dh_a &= \lim_{h \rightarrow 0} \frac{\frac{1}{g(a+h)}-\frac{1}{g(a)}}{h}\\
+        &= \lim_{h \rightarrow 0} \frac{g(a)-g(a+h)}{g(a+h)g(a)h} \\
+        &= \lim_{h \rightarrow 0} -\left( \frac{g(a+h)-g(a)}{h} \right)\left( \frac{1}{g(a+h)g(a)} \right) \\
+        &= (-dg_a) \left( \frac{1}{[g(a)]^2} \right) \\
+        &= -\frac{dg_a}{[g(a)]^2}
+    \end{align*}
+    and thus \( \left( \frac{f}{g} \right)(x) = f(x)[g(x)]^{-1} = f(x)h(x) \) and so
+    \begin{align*}
+        d\left( \frac{f}{g} \right)_a &= d(fh)_a \\
+        &= h(a)df_a+f(a)dh_a \\
+        &= \frac{df_a}{g(a)}-\frac{f(a)dg_a}{[g(a)]^2} \\
+        &= \frac{g(a)df_a-f(a)dg_a}{[g(a)]^2}
+    \end{align*}
+\end{enumerate}
+\end{proof}
+
+\question Let \( \gamma(t) \) be the position vector of a particle moving with constant acceleration vector \( \gamma''(t)=a \). Then show that \( \gamma(t) = \frac{1}{2}t^2a+tv_0+p_0 \) where \( p_0=\gamma(0) \) and \( v_0 = \gamma'(0) \). If \( a = 0 \), conclude that the particle moves along a straight line through \( p_0 \) with velocity vector \( v_0 \) (the law of inertia).  
+
+\begin{proof}
+We see that
+\[
+(\gamma_1''(t), \ldots, \gamma_n''(t)) = \gamma''(t) = (a_1,\ldots,a_n)
+\]
+which implies
+\[
+\gamma_i'(t) = \int \gamma_i''(t)dt = \int a_i = ta_i+v_{0}^i
+\]
+which, in turn, implies
+\[
+\gamma_i(t) = \int \gamma_i'(t) = \int ta_i+c_1 = \frac{1}{2}t^2a_i+tv_{0}^i+p_{0}^i
+\]
+Thus
+\[
+\gamma(t) = \frac{1}{2}t^2a+tv_0+p_0
+\]
+where, clearly, \( p_0 = \gamma(0) \) and \( v_0 = \gamma'(0) \). Setting \( a = 0 \) we see that \( \gamma(t) = tv_0+p_0 \) is linear in \( t \), and therefore proceeds in a straight line through point \( p_0 \). Since \( \gamma'(t) = v_0 \), the velocity vector is \( v_0 \). 
+\end{proof}
+
+\question Let \( \gamma: \mathbb{R} \rightarrow \mathbb{R}^n \) be a differentiable curve. Show that \( \left| \gamma(t) \right| \) is constant if and only if \( \gamma(t) \) and \( \gamma'(t) \) are orthogonal for all \( t \).
+
+\begin{proof}
+If \( \gamma(t) = 0 \) there is nothing to show. Otherwise, if \( \left| \gamma(t) \right| \) is constant, then the image curve of \( \gamma \) is the \( n \)-sphere centered at the origin. If we let \( p \) be the origin, then Exercise 1.1 above implies the result. Now, if \( \gamma(t) \) and \( \gamma'(t) \) are orthogonal for all \( t \), then, letting \( \phi(t) = \left| \gamma(t) \right|^2 \) gives us that, for all \( t \):
+\[
+d\phi_t = 2 \langle \gamma(t), \gamma'(t) \rangle = 0
+\]
+which, since \( \phi: \mathbb{R} \rightarrow \mathbb{R} \) we get the single-variable result that \( \phi(t) \) must be constant, which implies that \( \left| \gamma(t) \right| \) is constant.
+\end{proof}
+
+\question Suppose that a particle moves around a circle in the plane \( \mathbb{R}^2 \), of radius \( r \) centered at \( 0 \), with constant speed \( v \). Deduce from the previous exercise that \( \gamma(t) \) and \( \gamma''(t) \) are both orthogonal to \( \gamma'(t) \), so it follows that \( \gamma''(t) = k(t)\gamma(t) \). Substitute this result into the equation obtained by differentiating \( \langle \gamma(t), \gamma'(t) \rangle = 0 \) to obtain \( k = -v^2/r^2 \). Thus the acceleration vector always points towards the origin and has constant length \( v^2/r \).
+
+\begin{proof}
+If \( \gamma(t) \) is a circle in the plane, centered at \( 0 \) of radius \( r \), then 
+\[
+\left| \gamma(t) \right| =r
+\]
+for all \( t \). So by the previous exercise we know \( \langle \gamma(t), \gamma'(t) \rangle = 0 \) for all \( t \). But since the particle has constant speed, by definition, \( \left| \gamma'(t) \right| = v \) which, again, implies 
+\[
+\langle \gamma'(t), \gamma''(t) \rangle = 0
+\]
+Thus \( \gamma(t) \) and \( \gamma''(t) \) are both orthogonal to \( \gamma'(t) \). Thus we can conclude \( \gamma''(t) = k(t)\gamma(t) \). Therefore 
+\begin{align*}
+    0 &= \left[ \langle \gamma(t), \gamma'(t) \rangle \right]'\\
+    &= \sum [\gamma_i'(t)]^2+\gamma_i(t)^2k(t) \\
+\end{align*}
+which implies
+\[
+k(t) = -\frac{\left| \gamma_i'(t) \right|^2}{\left| \gamma_i(t) \right|^2} = - \frac{v^2}{r^2}
+\]
+\end{proof}
+
+\Section{Directional Derivatives and the Differential}
+
+\subsection*{Exercises}
+
+\question If \( F: \mathbb{R}^n \rightarrow \mathbb{R}^m \) is differentiable at \( a \), show that \( F \) is continuous at \( a \).
+
+\begin{proof}
+Notice that differentiability of \( F \) at \( a \) implies
+\[
+F(a+h) = F(a) + dF_a(h)+\epsilon(h)
+\]
+where \( \epsilon(h) \rightarrow 0 \) as \( h \rightarrow 0 \) which implies \( \epsilon(h) \rightarrow 0 \) as \( h \rightarrow 0 \). Thus taking the limit of both sides yields 
+\[
+\lim_{h \rightarrow 0} F(a+h) = \lim_{h \rightarrow 0} F(a) + \lim_{h \rightarrow 0} dF_a(h) + \lim_{h \rightarrow 0} \epsilon(h) = F(a) 
+\]
+\end{proof}
+
+\question If \( p: \mathbb{R}^2 \rightarrow \mathbb{R} \) is defined by \( p(x,y) = xy \), show that \( p \) is differentiable everywhere with \( dp_{(a,b)} = bx+ay \).
+
+\begin{proof}
+Notice \( D_1p(a,b) = b \) and \( D_2p(a,b) = a \), implying that \( p \) is continuously differentiable at \( a \). Thus \( p \) is differentiable at \( a \) and
+\[
+dp_{(a,b)} = \left[ \begin{array}{cc} D_1p(a,b) & D_2p(a,b)  \end{array} \right] \left[ \begin{array}{c} x \\ y \end{array} \right] = \left[ \begin{array}{cc} b & a  \end{array} \right] \left[ \begin{array}{c} x \\ y \end{array} \right] = bx+ay
+\]
+\end{proof}
+
+\question If \( f: \mathbb{R}^2 \rightarrow \mathbb{R} \) is defined by \( f(x,y) = \frac{xy^2}{x^2+y^2} \) unless \( x = y = 0 \), in which case \( f(0,0)=0 \). Show that \( D_vf(0,0) \) exists for all \( v \), but \( f \) is \emph{not} differentiable at \( (0,0) \).
+
+\begin{proof}
+By the definition of the directional derivative, we know that if \( v = (0,0) \) there is nothing to show, otherwise
+\begin{align*}
+    D_vf(0,0) &= \lim_{t \rightarrow 0} \frac{f((0,0)+tv)-f(0,0)}{t} \\
+    &= \lim_{t \rightarrow 0}\frac{t^3v_1v_2^2}{t^3(v_1^2+v_2^2)} \\
+    &= \frac{v_1v_2^2}{v_1^2+v_2^2}
+\end{align*}
+which exists since \( v_1 \) and \( v_2 \) are not both zero. Thus \( D_1f(0,0) = D_2f(0,0) = 0 \), and yet \( D_{(1,1)}  f(0,0) = \frac{1}{2} \). But then \( D_{(1,1)}f(0,0) \neq D_1f(0,0)+D_2f(0,0) \) so that, by contrapositive, \( df_{(0,0)} \) does not exist. 
+\end{proof}
+
+\question Do the same as in the previous problem with the function \(f: \mathbb{R}^2 \rightarrow \mathbb{R} \) defined by \( f(x,y) = (x^{\frac{1}{3}}+y^{\frac{1}{3}})^3 \).
+
+\question Let \( f: \mathbb{R}^2 \rightarrow \mathbb{R} \) be defined by \( f(x,y) = x^3\sin(1/x)+y^2 \) for \( x \neq 0 \) and \( f(0,y) = y^2 \). Show some stuff about it.
+
+\question Use the approximation \( \Delta f_a \approx df_a \) to estimate the value of 
+\begin{enumerate}
+    \item \( [(3.02)^2+(1.97)^2+(5.98)^2] \)
+    
+    \item \( (e^4)^{1/10}= e^{0.4} = e^{1.1^2-0.9^2} \)
+\end{enumerate}
+
+\question
+
+\question 
+
+\question If \( f: \mathbb{R}^n \rightarrow \mathbb{R}^m \) and \( g: \mathbb{R}^n \rightarrow \mathbb{R}^k \) are both differentiable at \( a \in \mathbb{R}^n \), prove directly from the definition that the mapping \( h:\mathbb{R}^n \rightarrow \mathbb{R}^{m+k} \), defined by \( h(x) = (f(x),g(x)) \), is differentiable at \( a \).
+
+\begin{proof}
+If we let \( L_a(s) = (df_a(s),dg_a(s)) \) then
+\begin{align*}
+    \lim_{s \rightarrow 0} \frac{\left| \Delta h_a(s) - L_a(s) \right|}{\left| s \right|} &= \lim_{s \rightarrow 0} \frac{\left| (\Delta f_a(s)-df_a(s), \Delta g_a(s)-dg_a(s)) \right|}{\left| s \right|} \\
+    &\leq \lim_{s \rightarrow 0} \frac{\left| f_a(s)-df_a(s) \right|}{\left| s  \right|} + \lim_{s \rightarrow 0} \frac{\left| \Delta g_a(s)-dg_a(s) \right|}{\left| \Delta s \right|} \\
+    &= 0
+\end{align*}
+Thus \( h \) is differentiable at \( a \) and \( dh_a = (df_a(s),dg_a(s)) \).
+\end{proof}

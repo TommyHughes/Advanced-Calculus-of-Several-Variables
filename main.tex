@@ -1,0 +1,47 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, mathtools, amssymb, mathrsfs, enumitem, amsthm}
+
+\newcounter{Exercises}[section]
+\newcounter{Section}[chapter]
+\newcounter{thmsandprops}[section]
+
+\newcommand{\Section}[1]{\vspace{5mm} \setcounter{Exercises}{0} \refstepcounter{Section} \noindent \begin{Large}\textbf{\theSection} \hspace{3mm} \textbf{#1}\end{Large} \vspace{5mm} \newline}
+
+\newcommand{\question}{\noindent \refstepcounter{Exercises} \textbf{\theSection.\theExercises} \hspace{2mm}}
+
+\newenvironment{thm}[1]
+{\refstepcounter{thmsandprops} \vspace{5mm} \begin{center} \begin{minipage}{0.8\textwidth} \noindent \textbf{#1 \theSection.\thethmsandprops} 
+}
+{\end{minipage} \end{center} \vspace{3mm}}
+
+\title{Notes On Advanced Calculus of Several Variables}
+\author{Thomas Hughes}
+\date{February 2018}
+
+\begin{document}
+
+\maketitle
+
+\section*{Preface}
+These are a collection of notes on the topic of multivariable calculus, taken from C.H. Edwards Jr.'s text book. These notes are not intended for professional use and so will not include rigorous citations. 
+
+\chapter{Euclidean Space and Linear Mappings}
+\include{Chapter1}
+
+\chapter{Multivariable Differential Calculus}
+\include{Chapter2}
+
+\chapter{Successive Approximations and Implicit Functions}
+\include{Chapter3}
+
+\chapter{Multiple Integrals}
+\include{Chapter4}
+
+\chapter{Line and Surface Integrals; Differential Forms and Stoke's Theorem}
+\include{Chapter5}
+
+\chapter{The Calculus of Variations}
+\include{Chapter6}
+
+\end{document}
